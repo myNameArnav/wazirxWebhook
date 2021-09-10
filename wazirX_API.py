@@ -1,6 +1,3 @@
-from requests.api import get
-
-
 def getPrice(option):
     import requests
     import json
