@@ -1,7 +1,8 @@
-# WazirX-Webhook-for-Discord
+# WazirX Webhook
 
-## I am trying to make a webhook for discord that sends [WazirX](https://wazirx.com/) price info at a period time for perticular coins.
+### A webhook for discord that sends [WazirX](https://wazirx.com/) price info for crypto.
 
+<hr>
 
 An example of what you could do with this webhook
 
