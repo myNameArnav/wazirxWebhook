@@ -4,7 +4,7 @@ from parse import parseJSON
 from url import *
 from dhooks import Webhook, Embed, embed
 
-coinList = ["btcusdt", "adainr"]
+coinList = ["btcusdt", "adainr", "adausdt"]
 
 for i in coinList:
     namePriceTime = [name, lastPrice, time] = parseJSON(i)
