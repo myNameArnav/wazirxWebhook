@@ -1,5 +1,3 @@
-import json
-import requests
 from parse import parseJSON
 from url import *
 from dhooks import Webhook, Embed, embed
@@ -19,4 +17,4 @@ for i in coinList:
     embeded.add_field(name = "Name", value = name)
     embeded.add_field(name = "Price", value = lastPrice)
     
-    Webhook(webhook_url).send(embed=embeded)
+    Webhook(bot_url).send(embed=embeded)
