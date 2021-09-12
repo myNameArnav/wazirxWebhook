@@ -31,4 +31,4 @@ for i in coinList:
     embeded.add_field(name = "Price", value = lastPrice)
     embeded.add_field(name = "Change", value = price)
     
-    Webhook(bot_url).send(embed=embeded)
+    Webhook(webhook_url).send(embed=embeded)
