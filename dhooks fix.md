@@ -11,6 +11,8 @@ Go to client.py in dhooks library, on line **118** change the following variable
 
 Once you do it the `invalid url` error will be fixed.
 
+---
+
 > It is caused because [dhooks](https://github.com/kyb3r/dhooks) has fixed the issue on github but has not pushed it to pypi
 
 [reference](https://github.com/kyb3r/dhooks/issues/37)
