@@ -3,38 +3,37 @@ from parse import parseJSON
 from url import *
 from dhooks import Webhook, Embed
 
-coinList = ["btcusdt", "adainr", "adausdt"]
+# coinList = ["btcusdt", "adainr", "adausdt"]
 
-priceDict = {
+coinDict = {
     "btcusdt":[],
      "adainr":[],
      "adausdt":[]
 }
 
-j = parseJSON("adausdt")
-for i in coinList:
-    priceDict[i] = [name, lastPrice, openPrice] = (parseJSON(i))
+for i in coinDict:
+    coinDict[i] = [name, lastPrice, openPrice] = (parseJSON(i))
     
     upORdown = str(round(float(lastPrice) - float(openPrice), 3))
     
     if float(lastPrice) < float(openPrice):
-        priceDict[i].append(" :arrow_down_small:  " + "( " + upORdown + ")")
+        coinDict[i].append("🔻" + "( " + upORdown + ")")
     
     elif float(lastPrice) > float(openPrice):
-        priceDict[i]["price"]= " :arrow_up_small: " + "( "+ upORdown + ")"
+        coinDict[i].append(" :arrow_up_small: " + "( "+ upORdown + ")")
         
     else:
-        priceDict[i]["price"] = lastPrice + " :arrow_forward: "
+        coinDict[i].append (lastPrice + " :arrow_forward: ")
     
 embeded = Embed(
     description = "Here is the price",
 )
 embeded.set_author(name = "PriceBot")
 
-for i in priceDict:
-    embeded.add_field(name = "Name", value = priceDict[i][0])
-    embeded.add_field(name = "Price", value = priceDict[i][1])
-    embeded.add_field(name = "Change", value = priceDict[i][3])
+for i in coinDict:
+    embeded.add_field(name = "Name", value = coinDict[i][0])
+    embeded.add_field(name = "Price", value = coinDict[i][1])
+    embeded.add_field(name = "Change", value = coinDict[i][3])
     
 Webhook(webhook_url).send(embed=embeded)
 
