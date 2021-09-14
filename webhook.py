@@ -17,7 +17,7 @@ for i in coinDict:
     upORdown = str(round(float(lastPrice) - float(openPrice), 3))
     
     if float(lastPrice) < float(openPrice):
-        coinDict[i].append("🔻" + "( " + upORdown + ")")
+        coinDict[i].append(" :arrow_down_small: " + "( " + upORdown + ")")
     
     elif float(lastPrice) > float(openPrice):
         coinDict[i].append(" :arrow_up_small: " + "( "+ upORdown + ")")
