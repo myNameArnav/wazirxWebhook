@@ -7,8 +7,7 @@ from dhooks import Webhook, Embed
 
 coinDict = {
     "btcusdt":[],
-     "adainr":[],
-     "adausdt":[]
+    "adausdt":[]
 }
 
 for i in coinDict:
@@ -18,22 +17,24 @@ for i in coinDict:
     
     if float(lastPrice) < float(openPrice):
         coinDict[i].append(" :arrow_down_small: " + "( " + upORdown + ")")
-    
+        coinDict[i][0] = "🔴 " + name
+        
     elif float(lastPrice) > float(openPrice):
         coinDict[i].append(" :arrow_up_small: " + "( "+ upORdown + ")")
+        coinDict[i][0] = "🟢 " + name
         
     else:
         coinDict[i].append (lastPrice + " :arrow_forward: ")
-    
-embeded = Embed(
+        coinDict[i][0] = "🔵 " + name
+
+embedded = Embed(
     description = "Here is the price",
 )
-embeded.set_author(name = "PriceBot")
+embedded.set_author(name = "PriceBot")
 
 for i in coinDict:
-    embeded.add_field(name = "Name", value = coinDict[i][0])
-    embeded.add_field(name = "Price", value = coinDict[i][1])
-    embeded.add_field(name = "Change", value = coinDict[i][3])
+    embedded.add_field(name = "Name", value = coinDict[i][0])
+    embedded.add_field(name = "Price", value = coinDict[i][1])
+    embedded.add_field(name = "Change", value = coinDict[i][3])
     
-Webhook(webhook_url).send(embed=embeded)
-
+Webhook(webhook_url).send(embed=embedded)
