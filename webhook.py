@@ -48,4 +48,4 @@ for i in coinDict:
     embedded.add_field(name = "%", value = coinDict[i][4], inline = True)
     embedded.set_footer(".                                                                                                            .")
     
-Webhook(bot_url).send(embed=embedded)
+Webhook(webhook_url).send(embed=embedded)
