@@ -4,7 +4,7 @@ A webhook for discord that sends [WazirX](https://wazirx.com/) price info for cr
 
 > An example
 >
-> ![image](https://user-images.githubusercontent.com/35961071/132983572-802a106d-31a3-45ba-af25-21c648669a97.png)
+> ![image](https://i.imgur.com/DJtN1YA.png)
 
 ---
 
