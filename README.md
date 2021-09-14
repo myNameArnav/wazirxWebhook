@@ -17,3 +17,7 @@ Installation
 3. Add `url.py` file, and add variable `webhook_url` and set its value to the webhook url
 
 4. Run `webhook.py`
+
+> :warning: **Important:**
+> if you get `invalid url` error read [dhooks fix](https://github.com/myNameArnav/wazirxWebhook/blob/master/dhooks%20fix.md)  
+> https://github.com/kyb3r/dhooks/issues/37
