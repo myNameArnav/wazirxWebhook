@@ -7,4 +7,4 @@ def parseJSON(coin):
     name = resp[coin]["name"]
     lastPrice = resp[coin]["last"]
     openPrice = resp[coin]["open"]
-    return name, lastPrice, openPrice
+    return [name, lastPrice, openPrice]

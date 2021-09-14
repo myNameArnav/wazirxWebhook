@@ -12,8 +12,9 @@ Installation
 
 1. `pip install -r requirements.txt`
 
-2. Read [dhooks fix](https://github.com/myNameArnav/wazirxWebhook/blob/master/dhooks%20fix.md) and change `URL_REGEX`
+2. Add `url.py` file, and add variable `webhook_url` and set its value to the webhook url
 
-3. Add `url.py` file, and add variable `webhook_url` and set its value to the webhook url
+3. Run `webhook.py`
 
-4. Run `webhook.py`
+> :warning: **Important:**
+> if you get `invalid url` error read [dhooks fix](https://github.com/myNameArnav/wazirxWebhook/blob/master/dhooks%20fix.md) 
