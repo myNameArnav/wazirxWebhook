@@ -20,4 +20,5 @@ Installation
 
 > :warning: **Important:**
 > if you get `invalid url` error read [dhooks fix](https://github.com/myNameArnav/wazirxWebhook/blob/master/dhooks%20fix.md)  
-> https://github.com/kyb3r/dhooks/issues/37
+
+https://github.com/kyb3r/dhooks/issues/37
