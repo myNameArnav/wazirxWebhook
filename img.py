@@ -7,6 +7,8 @@ montserrat = ImageFont.truetype("fonts\Montserrat.ttf", 30)
 bebas = ImageFont.truetype("fonts\BebasNeue.ttf", 45)
 slab = ImageFont.truetype("fonts\RobotoSlab.ttf", 20)
 
+# Shreyans was here
+
 width = 1280
 height = 720
 
