@@ -1,9 +1,10 @@
 name: Pylint
 
-on: 
-  schedule:
-    - cron: "0 10 * * *"
-
+on:
+  push:
+    branches:
+    - main
+	
 jobs:
   my_job:
     name: deploy
@@ -22,4 +23,3 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint `ls -R|grep .py$|xargs`
-	python3 webhook.py
