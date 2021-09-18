@@ -35,8 +35,7 @@ def responseImg(rates):
     colors = (245, 239, 237)
     marginTop = 100
 
-    draw.text((50, marginTop), iconsList, font=HackNF, fill=(
-        250, 159, 66), align='left')  # for the  coin Icon in the First Row
+    draw.text((50, marginTop), iconsList, font=HackNF, fill=(250, 159, 66), align='left')  # for the  coin Icon in the First Row
 
 
 # * imported from parse.py
