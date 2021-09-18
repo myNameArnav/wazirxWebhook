@@ -48,8 +48,9 @@ def responseImg(rates):
         lastPriceList=lastPriceList +lastPrice +"\n"
         up_DownList= up_DownList + uporDown + "\n"
         
-        if perChange[:-1] != '-':
-            perChange = "+" + perChange
+        # if perChange[:-1] != '-':
+        #     perChange = "+" + perChange
+        
         perChangeList= perChangeList + perChange + "\n"
 
 
