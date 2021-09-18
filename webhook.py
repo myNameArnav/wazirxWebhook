@@ -42,8 +42,6 @@ for i in coinDict:
 
     perChange = str(round(((lastPrice - openPrice) / lastPrice) * 100, 2))
 
-    # if perChange[:-1] not '-':
-    #     perChange = "+" + perChange
 
     coinDict[i].append(perChange)
 
