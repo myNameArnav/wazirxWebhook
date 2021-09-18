@@ -2,50 +2,54 @@ from os import altsep
 from typing import Tuple
 from parse import parseJSON
 from url import *
-from dhooks import Webhook, Embed
+from dhooks import Webhook, File
+from img import responseImg
 
 # coinList = ["btcusdt", "adainr", "adausdt"]
 
 coinDict = {
-    "btcusdt":[],
-    "adausdt":[]
+    "btcusdt": [],
+    "avaxinr": [],
+    # "maticinr": [],
+    # "vetinr": [],
+    # "uniusdt": [],
+    # "xrpinr": [],
+    # "ethusdt": []
 }
 
 for i in coinDict:
-    coinDict[i] = [name, lastPrice, openPrice] = (parseJSON(i))
-    
+    coinDict[i] = [name, lastPrice, openPrice] = parseJSON(i)
+
     lastPrice = float(lastPrice)
     openPrice = float(openPrice)
-    
+
     upORdown = str(round(lastPrice - openPrice, 3))
-    
+
     if float(lastPrice) < float(openPrice):
         coinDict[i].append(upORdown)
-        coinDict[i][0] = "🔴 " + name
-        
+        coinDict[i].append("")
+        coinDict[i].append((239, 48, 84))
+
     elif float(lastPrice) > float(openPrice):
         coinDict[i].append("+" + upORdown)
-        coinDict[i][0] = "🟢 " + name
-        
+        coinDict[i].append("")
+        coinDict[i].append((141, 233, 105))
+
     else:
-        coinDict[i].append (lastPrice + " :arrow_forward: ")
-        coinDict[i][0] = "🔵 " + name
-    
-    perChange = str(round(((lastPrice - openPrice) / lastPrice)* 100, 2))
-    
+        coinDict[i].append(lastPrice + " :arrow_forward: ")
+        coinDict[i].append("")
+        coinDict[i].append((86, 203, 249))
+
+    perChange = str(round(((lastPrice - openPrice) / lastPrice) * 100, 2))
+
     # if perChange[:-1] not '-':
     #     perChange = "+" + perChange
-    
-    coinDict[i].append(perChange)
-        
-embedded = Embed(
-    description = "Here is the prices: ")
 
-for i in coinDict:
-    embedded.add_field(name = "Name", value = coinDict[i][0], inline = False)
-    embedded.add_field(name = "Price", value = coinDict[i][1], inline = True)
-    embedded.add_field(name = "Change", value = coinDict[i][3], inline = True)
-    embedded.add_field(name = "%", value = coinDict[i][4], inline = True)
-    embedded.set_footer(".                                                                                                            .")
-    
-Webhook(webhook_url).send(embed=embedded)
+    coinDict[i].append(perChange)
+
+responseImg(coinDict)
+
+
+imgFile = File("picture.png", name="output.png")
+
+Webhook(webhook_url).send(file=imgFile)
