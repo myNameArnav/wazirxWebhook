@@ -9,7 +9,12 @@ from img import responseImg
 
 coinDict = {
     "btcusdt": [],
-    "adausdt": []
+    "avaxinr": [],
+    "maticinr": [],
+    "vetinr": [],
+    "uniusdt": [],
+    "xrpinr": [],
+    "ethusdt": []
 }
 
 for i in coinDict:
@@ -23,17 +28,17 @@ for i in coinDict:
     if float(lastPrice) < float(openPrice):
         coinDict[i].append(upORdown)
         coinDict[i].append("")
-        coinDict[i].append((255,0,0))
+        coinDict[i].append((239, 48, 84))
 
     elif float(lastPrice) > float(openPrice):
         coinDict[i].append("+" + upORdown)
         coinDict[i].append("")
-        coinDict[i].append((0,255,0))
+        coinDict[i].append((141, 233, 105))
 
     else:
         coinDict[i].append(lastPrice + " :arrow_forward: ")
         coinDict[i].append("")
-        coinDict[i].append((0,0,255))
+        coinDict[i].append((86, 203, 249))
 
     perChange = str(round(((lastPrice - openPrice) / lastPrice) * 100, 2))
 
@@ -44,18 +49,7 @@ for i in coinDict:
 
 responseImg(coinDict)
 
-hook = Webhook(webhook_url)
+
 imgFile = File("picture.png", name="output.png")
-# # embedded = Embed(
-# #     description="Here is the prices: ")
 
-# # for i in coinDict:
-# #     embedded.add_field(name="Name", value=coinDict[i][0], inline=False)
-# #     embedded.add_field(name="Price", value=coinDict[i][1], inline=True)
-# #     embedded.add_field(name="Change", value=coinDict[i][3], inline=True)
-# #     embedded.add_field(name="%", value=coinDict[i][4], inline=True)
-# #     embedded.set_footer(
-# #         ".                                                                                                            .")
-
-# # embedded.send(imgFile)
-hook.send("Yo sup", file=imgFile)
+Webhook(webhook_url).send(file=imgFile)

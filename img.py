@@ -3,76 +3,62 @@ def responseImg(rates):
     from PIL import Image, ImageDraw, ImageFont
     from parse import parseJSON
 
-    # # * font declaration
+#* font declaration
+
     # roboto = ImageFont.truetype("fonts\RobotoMono.ttf", 30)
     # montserrat = ImageFont.truetype("fonts\Montserrat.ttf", 30)
     # bebas = ImageFont.truetype("fonts\BebasNeue.ttf", 45)
     # slab = ImageFont.truetype("fonts\RobotoSlab.ttf", 20)
+    HackNF = ImageFont.truetype("fonts\HackNF_Regular.ttf", 45)
 
-    # width = 1280
-    # height = 720
+    width = 1280
+    height = len(rates)*75 + 200  #  75 for each item in list and 200 for padding  
 
-    # # * imported from parse.py
-    # for i in rates:
-    #     name, lastPrice, openPrice,uporDown,icon,perChange = rates[i]
-    #     lastPrice, openPrice = float(lastPrice), float(openPrice)
-    #     change = openPrice - lastPrice
-    #     # perChange = str(
-    #     #     round(((lastPrice - openPrice) / lastPrice) * 100, 2))
 
-    #     img = Image.new(mode="RGBA", size=(
-    #         width, height), color=(54, 57, 63, 100))
-    #     draw = ImageDraw.Draw(img)
-
-    # space = " " * 20
-    #     moreSpace = " " * 25
-    #     spaceFromTop = 60
-
-    #     hdr = "Name" + space + "Price" + space + "Change" + space + "%"
-    #     draw.text((10, 5), hdr, font=bebas, fill=(
-    #         225, 225, 225), align='right',embedded_color=True)
-
-    #     txt = icon +moreSpace+ name + moreSpace + \
-    #         str(lastPrice) + moreSpace + \
-    #         str(change) + moreSpace + str(perChange)
-
-    #     draw.text((10, spaceFromTop), txt, font=slab,
-    #               fill=(255, 255, 255), align='right')
-    # img.save("picture.png")
-
-    # img.show()
-
-    fnt = ImageFont.truetype("fonts\HackNF_Regular.ttf", 45, layout_engine=ImageFont.LAYOUT_RAQM)
+#* Creating a Image
 
     img = Image.new(mode="RGBA", size=(
-        1280, 720), color=(54, 57, 63, 100))
+        width, height), color=(50, 53, 59,100))
+
     draw = ImageDraw.Draw(img)
+
+#* individual List for each Column
+
     nameList="Name\n" 
-    lastPriceList="lastPrice\n"
-    up_DownList="uporDown\n"
-    perChangeList="perChange\n"
+    lastPriceList="Price\n"
+    up_DownList="Change\n"
+    perChangeList="%\n"
     iconsList="\n"
-    colors=[(255,255,255)]
+    colors=(245, 239, 237)
+    marginTop=100
+
+    draw.text((50,marginTop),iconsList,font=HackNF,fill=(250, 159, 66),align='left') # for the  coin Icon in the First Row
+
+
+# * imported from parse.py
+
     for i in rates:
         name, lastPrice, openPrice,uporDown,arrow,colorFill,perChange = rates[i]
-        colors.append(colorFill) 
 
-        iconsList=iconsList+arrow+"\n"
+        marginTop+=67
+        draw.text((50,marginTop),arrow+"\n",font=HackNF,fill=colorFill,align='left')
+
+
         nameList= nameList + name +"\n"
         lastPriceList=lastPriceList +lastPrice +"\n"
         up_DownList= up_DownList + uporDown + "\n"
         perChangeList= perChangeList + perChange + "\n"
 
-        
 
 
-
-    draw.multiline_text((50,100),iconsList,font=fnt,fill=colors[1],align='left',spacing=25)
-    draw.multiline_text((100,100),nameList,font=fnt,fill=colors[0],align='left',spacing=25)
-    draw.multiline_text((350,100),lastPriceList,font=fnt,fill=colors[0],align='left',spacing=25)
-    draw.multiline_text((620,100),up_DownList,font=fnt,fill=colors[0],align='left',spacing=25)
-    draw.multiline_text((870,100),perChangeList,font=fnt,fill=colors[0],align='left',spacing=25)
+    draw.multiline_text((100,100),nameList,font=HackNF,fill=colors,align='left',spacing=25)
+    draw.multiline_text((360,100),lastPriceList,font=HackNF,fill=colors,align='left',spacing=25)
+    draw.multiline_text((620,100),up_DownList,font=HackNF,fill=colors,align='left',spacing=25)
+    draw.multiline_text((870,100),perChangeList,font=HackNF,fill=colors,align='left',spacing=25)
 
     img.save("picture.png")
     img.show()
+
+#? Should this functions return the Image or save it 
+
     # return img
