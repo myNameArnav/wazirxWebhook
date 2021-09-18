@@ -10,7 +10,7 @@ from img import responseImg
 coinDict = {
     "btcusdt": [],
     "avaxinr": [],
-    # "maticinr": [],
+    "shibinr": [],
     # "vetinr": [],
     # "uniusdt": [],
     # "xrpinr": [],
