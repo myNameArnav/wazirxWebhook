@@ -62,8 +62,3 @@ def responseImg(rates):
     draw.multiline_text((870,100),perChangeList,font=HackNF,fill=colors,align='left',spacing=25)
 
     img.save("picture.png")
-    img.show()
-
-#? Should this functions return the Image or save it 
-
-    # return img
