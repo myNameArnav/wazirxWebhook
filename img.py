@@ -56,11 +56,11 @@ def responseImg(rates):
 
         perChangeList = perChangeList + perChange + "\n"
 
-
-
     draw.multiline_text((100,100),nameList,font=HackNF,fill=colors,align='left',spacing=25)
     draw.multiline_text((360,100),lastPriceList,font=HackNF,fill=colors,align='left',spacing=25)
     draw.multiline_text((620,100),up_DownList,font=HackNF,fill=colors,align='left',spacing=25)
     draw.multiline_text((870,100),perChangeList,font=HackNF,fill=colors,align='left',spacing=25)
 
     img.save("picture.png")
+
+
