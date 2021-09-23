@@ -11,6 +11,7 @@ coinDict = {
     "btcusdt": [],
     "avaxinr": [],
     "shibinr": [],
+    "adausdt": [],
     # "vetinr": [],
     # "uniusdt": [],
     # "xrpinr": [],
